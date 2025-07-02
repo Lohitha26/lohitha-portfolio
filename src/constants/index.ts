@@ -12,15 +12,18 @@ import {
   backend,
   creator,
   web,
+  azure,
+  dotnet,
+  nextjs,
   javascript,
   typescript,
   html,
+  csharp,
   css,
   reactjs,
   redux,
   tailwind,
   nodejs,
-  mongodb,
   git,
   figma,
   docker,
@@ -66,8 +69,24 @@ const services: TService[] = [
 
 const technologies: TTechnology[] = [
   {
+    name: 'Next JS',
+    icon: nextjs,
+  },
+  {
+    name: '.NET',
+    icon: dotnet,
+  },
+  {
+    name: 'C#',
+    icon: csharp,
+  },
+  {
     name: 'HTML 5',
     icon: html,
+  },
+  {
+    name: 'Azure',
+    icon: azure,
   },
   {
     name: 'CSS 3',
@@ -96,10 +115,6 @@ const technologies: TTechnology[] = [
   {
     name: 'Node JS',
     icon: nodejs,
-  },
-  {
-    name: 'MongoDB',
-    icon: mongodb,
   },
   {
     name: 'Three JS',
@@ -213,10 +228,6 @@ const projects: TProject[] = [
       {
         name: 'react',
         color: 'blue-text-gradient',
-      },
-      {
-        name: 'mongodb',
-        color: 'green-text-gradient',
       },
       {
         name: 'tailwind',

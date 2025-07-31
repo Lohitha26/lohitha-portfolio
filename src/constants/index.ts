@@ -68,18 +68,11 @@ const services: TService[] = [
 ];
 
 const technologies: TTechnology[] = [
-  {
-    name: 'Next JS',
-    icon: nextjs,
-  },
-  {
-    name: '.NET',
-    icon: dotnet,
-  },
-  {
-    name: 'C#',
-    icon: csharp,
-  },
+  // {
+  //   name: '.NET',
+  //   icon: dotnet,
+  // },
+
   {
     name: 'HTML 5',
     icon: html,
@@ -101,6 +94,10 @@ const technologies: TTechnology[] = [
     icon: typescript,
   },
   {
+    name: 'c#',
+    icon: csharp,
+  },
+  {
     name: 'React JS',
     icon: reactjs,
   },
@@ -111,6 +108,10 @@ const technologies: TTechnology[] = [
   {
     name: 'Tailwind CSS',
     icon: tailwind,
+  },
+  {
+    name: 'Next JS',
+    icon: nextjs,
   },
   {
     name: 'Node JS',

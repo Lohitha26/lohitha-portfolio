@@ -1,7 +1,7 @@
-import React, { Suspense } from 'react';
+import { Suspense } from 'react';
 import { Canvas, useLoader } from '@react-three/fiber';
 import { TextureLoader } from 'three';
-import { Decal, Float, OrbitControls, Preload, useTexture } from '@react-three/drei';
+import { Decal, Float, OrbitControls, Preload } from '@react-three/drei';
 
 import CanvasLoader from '../layout/Loader';
 

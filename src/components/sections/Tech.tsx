@@ -37,7 +37,7 @@ const Tech = () => {
         {technologies.map(technology => (
           <div className="h-28 w-28" key={technology.name}>
             <Suspense fallback={null}>
-              <BallCanvas icon={technology.icon} />
+              <BallCanvas icon={loadedIcons[technology.name] || technology.icon} />
             </Suspense>
           </div>
         ))}

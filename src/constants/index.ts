@@ -196,35 +196,47 @@ const experiences: TExperience[] = [
 const testimonials: TTestimonial[] = [
   {
     testimonial:
-      'I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.',
-    name: 'Sara Lee',
-    designation: 'CFO',
-    company: 'Acme Co',
-    image: 'https://randomuser.me/api/portraits/women/4.jpg',
+      'Lohitha consistently delivers high-quality work on time and approaches every task with remarkable enthusiasm and a genuine eagerness to learn. Her proactive attitude and reliability make her a standout team member, even early in her career',
+    name: 'Ravi Shankar',
+    designation: 'Director of Ecommerce @Pespico',
+    company: 'Pespico',
+    image:
+      'https://media.licdn.com/dms/image/v2/C4E03AQG2N9v8WREuHw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1586284593369?e=1756944000&v=beta&t=MEO8r506CJHKnbDX1NrXK6KjfH3xFiM0qojrRMeoOAc',
   },
   {
     testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
-    name: 'Chris Brown',
-    designation: 'COO',
-    company: 'DEF Corp',
-    image: 'https://randomuser.me/api/portraits/men/5.jpg',
+      'Lohitha started her journey at Toast as an intern and quickly stood out for her eagerness to learn, strong backend skills in .NET Core, SQL, and PostgreSQL, and her knack for tackling challenges like query optimization. With a growing interest in ReactJS, she steadily built her full-stack capabilities. Her clear communication, consistent delivery, and dedication made her an invaluable team member from day one.',
+    name: 'Soulwin Raja E',
+    designation: 'SDE @Toast Inc',
+    company: 'Toast Inc',
+    image:
+      'https://media.licdn.com/dms/image/v2/D5603AQHFkqqTWXbUJA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1665908258129?e=1756944000&v=beta&t=NvK2QP4h55EWipJAg7o26W8F0z4rniVbXInt4kgG2HE',
   },
   {
     testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: 'Lisa Wang',
-    designation: 'CTO',
-    company: '456 Enterprises',
-    image: 'https://randomuser.me/api/portraits/women/6.jpg',
+      'Working with Lohitha is like pairing clean code with strong coffee — reliable, sharp, and full of energy. She asks the right questions, digs into the backend requirements like a detective, and always shows up curious, enthusiastic, and ready to learn',
+    name: 'Kuldeep Mishra',
+    designation: 'Backend Lead @Pepsico',
+    company: 'Pepsico',
+    image:
+      'https://media.licdn.com/dms/image/v2/D5603AQEmFu_qoL9G6Q/profile-displayphoto-scale_400_400/B56ZeJQOsbH8Ak-/0/1750354424131?e=1756944000&v=beta&t=ofUW8OxcJqd1tmsPQjYB8KyuXVnNnSAAQTdd3zrgyNY',
+  },
+  {
+    testimonial:
+      'Lohitha joined our team and quickly proved herself to be a fast learner and a dedicated team player. She picked up React.js and .NET in a remarkably short time and contributed to building new features in our product with great efficiency. Her enthusiasm, adaptability, and collaborative attitude made her a valuable part of the team. Lohitha consistently delivered quality work and showed a strong eagerness to grow. She has great potential, and I’m confident she’ll excel in her career.',
+    name: 'Kalai Selvi',
+    designation: 'Tech Lead @Toast Inc',
+    company: 'Toast Inc',
+    image:
+      'https://media.licdn.com/dms/image/v2/C5603AQEWrK0eGp1Oug/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1623316575261?e=1756944000&v=beta&t=Ch2qQVdaLFMyr0ZcjzC8wbqgD2t5LEG7Ho2L-HZis_s',
   },
 ];
 
 const projects: TProject[] = [
   {
-    name: 'Car Rent',
+    name: 'Ecommerce Grocery Store',
     description:
-      'Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.',
+      'A modern web-based platform for online grocery shopping, allowing users to browse products, add items to their cart, and securely checkout. Features include real-time inventory updates, product search and filtering, and seamless order management for a convenient grocery shopping experience.',
     tags: [
       {
         name: 'react',

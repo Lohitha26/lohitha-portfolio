@@ -47,7 +47,7 @@ export const config: TConfig = {
   hero: {
     name: 'Lohitha bhusarapu',
     p: [
-      'Hey, I’m Lohitha — frontend fanatic, full-stack dreamer, and part-time UI therapist. I bring websites to life with Next.js, TypeScript, and TailwindCSS — sometimes with a dramatic flair of SCSS and Three.js when flat just isn’t fabulous enough. I obsess over clean UI, smooth animations, and components so reusable they practically do the dishes. On the backend, I handle business with .NET and SQL, but only when absolutely necessary — because let’s be honest, frontend is the main character. I’ve shipped with DatoCMS, deployed through Azure, and recently crash-landed into the world of GenAI with curious chaos and zero regrets. If it’s bold, fast, and slightly overengineered — I probably built it. Code, coffee, and controlled chaos — that’s the Lohitha way ☕💻🔥',
+      'Hey, I’m Lohitha — frontend fanatic, full-stack explorer, and part-time UI therapist. I build sleek, fast websites with Next.js, TypeScript, and TailwindCSS — and spice things up with SCSS or Three.js when needed. I love clean UIs, smooth animations, and components so reusable they deserve a medal. Occasionally I dabble in .NET and SQL (only when absolutely required). I’ve shipped with DatoCMS, deployed via Azure, and recently dived into GenAI — chaos included. Code, coffee, and controlled drama — that’s the Lohitha vibe ☕💻✨',
     ],
   },
   contact: {

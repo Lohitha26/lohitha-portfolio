@@ -1,4 +1,3 @@
-
 import { styles } from "../../constants/styles";
 import { config } from "../../constants/config";
 
@@ -14,10 +13,31 @@ const Hero = () => {
         </div>
 
         <div>
-          <h1 className={`${styles.heroHeadText} text-white`}>
+          <h1
+            className={`
+              ${styles.heroHeadText}
+              text-white
+              lg:text-4xl
+              xl:text-5xl
+              2xl:text-6xl
+              lg:mb-8
+            `}
+          >
             Hi, I'm <span className="text-[#915EFF]">{config.hero.name}</span>
           </h1>
-          <p className={`${styles.heroSubText} text-white-100 mt-2`}>
+          <p
+            className={`
+              ${styles.heroSubText}
+              text-white-100
+              mt-2
+              lg:mt-6
+              xl:mt-8
+              2xl:mt-10
+              lg:text-lg
+              xl:text-xl
+              2xl:text-2xl
+            `}
+          >
             {config.hero.p[0]} <br className="hidden sm:block" />
             {config.hero.p[1]}
           </p>

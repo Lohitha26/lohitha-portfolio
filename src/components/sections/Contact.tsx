@@ -2,27 +2,33 @@ import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
-import { EarthCanvas } from "../canvas";
+import { Header } from "../atoms/Header";
 import { SectionWrapper } from "../../hoc";
 import { slideIn } from "../../utils/motion";
 import { config } from "../../constants/config";
-import { Header } from "../atoms/Header";
-
+import { EarthCanvas } from "../canvas";
 const INITIAL_STATE = Object.fromEntries(
   Object.keys(config.contact.form).map((input) => [input, ""])
 );
-
-const emailjsConfig = {
+console.log('EmailJS Environment Check:', {
   serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
   templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-  accessToken: import.meta.env.VITE_EMAILJS_ACCESS_TOKEN,
+  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+  hasServiceId: !!import.meta.env.VITE_EMAILJS_SERVICE_ID,
+  hasTemplateId: !!import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+  hasPublicKey: !!import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+});
+
+const emailjsConfig = {
+  serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID || "",
+  templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "",
+  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "",
 };
 
 const Contact = () => {
-  const formRef = useRef<React.LegacyRef<HTMLFormElement> | undefined>();
+  const formRef = useRef<HTMLFormElement>(null);
   const [form, setForm] = useState(INITIAL_STATE);
   const [loading, setLoading] = useState(false);
-
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | undefined
   ) => {
@@ -34,6 +40,13 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement> | undefined) => {
     if (e === undefined) return;
     e.preventDefault();
+
+    // Validate environment variables
+    if (!emailjsConfig.serviceId || !emailjsConfig.templateId || !emailjsConfig.publicKey) {
+      alert("Email service is not configured. Please contact the administrator.");
+      return;
+    }
+
     setLoading(true);
 
     emailjs
@@ -47,7 +60,7 @@ const Contact = () => {
           to_email: config.html.email,
           message: form.message,
         },
-        emailjsConfig.accessToken
+        emailjsConfig.publicKey
       )
       .then(
         () => {
@@ -76,7 +89,6 @@ const Contact = () => {
         <Header useMotion={false} {...config.contact} />
 
         <form
-          // @ts-expect-error
           ref={formRef}
           onSubmit={handleSubmit}
           className="mt-12 flex flex-col gap-8"
@@ -121,3 +133,8 @@ const Contact = () => {
 };
 
 export default SectionWrapper(Contact, "contact");
+
+
+
+
+

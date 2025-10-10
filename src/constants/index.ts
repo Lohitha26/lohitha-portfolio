@@ -76,62 +76,77 @@ const technologies: TTechnology[] = [
   {
     name: 'HTML 5',
     icon: html,
+    proficiency: 95,
   },
   {
     name: 'Azure',
     icon: azure,
+    proficiency: 90,
   },
   {
     name: 'CSS 3',
     icon: css,
+    proficiency: 95,
   },
   {
     name: 'JavaScript',
     icon: javascript,
+    proficiency: 90,
   },
   {
     name: 'TypeScript',
     icon: typescript,
+    proficiency: 85,
   },
   {
     name: 'c#',
     icon: csharp,
+    proficiency: 80,
   },
   {
     name: 'React JS',
     icon: reactjs,
+    proficiency: 90,
   },
   {
     name: 'Redux Toolkit',
     icon: redux,
+    proficiency: 85,
   },
   {
     name: 'Tailwind CSS',
     icon: tailwind,
+    proficiency: 90,
   },
   {
     name: 'Next JS',
     icon: nextjs,
+    proficiency: 85,
   },
   {
     name: 'Node JS',
     icon: nodejs,
+    proficiency: 80,
   },
   {
     name: 'Three JS',
     icon: threejs,
+    proficiency: 85,
   },
   {
     name: 'git',
     icon: git,
+    proficiency: 90,
   },
   {
     name: 'figma',
     icon: figma,
+    proficiency: 75,
   },
   {
     name: 'docker',
     icon: docker,
+    proficiency: 70,
   },
 ];
 

@@ -20,8 +20,8 @@ const ProjectCard: React.FC<{ index: number } & TProject> = ({
   return (
     <motion.div variants={fadeIn('up', 'spring', index * 0.5, 0.75)}>
       <Tilt glareEnable tiltEnable tiltMaxAngleX={30} tiltMaxAngleY={30} glareColor="#aaa6c3">
-        <div className="bg-tertiary w-full rounded-2xl p-5">
-          <div className="relative h-[230px] w-full">
+        <div className="bg-tertiary w-full h-full min-h-[500px] rounded-2xl p-5 flex flex-col">
+          <div className="relative h-[230px] w-full flex-shrink-0">
             <img src={image} alt={name} className="h-full w-full rounded-2xl object-cover" />
             <div className="card-img_hover absolute inset-0 m-3 flex justify-end">
               <div
@@ -32,16 +32,18 @@ const ProjectCard: React.FC<{ index: number } & TProject> = ({
               </div>
             </div>
           </div>
-          <div className="mt-5">
-            <h3 className="text-[24px] font-bold text-white">{name}</h3>
-            <p className="text-secondary mt-2 text-[14px]">{description}</p>
-          </div>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {tags.map(tag => (
-              <p key={tag.name} className={`text-[14px] ${tag.color}`}>
-                #{tag.name}
-              </p>
-            ))}
+
+          <div className="mt-5 flex-1 flex flex-col">
+            <h3 className="text-[24px] font-bold text-white flex-shrink-0">{name}</h3>
+            <p className="text-secondary mt-2 text-[14px] flex-1 leading-relaxed">{description}</p>
+
+            <div className="mt-4 flex flex-wrap gap-2 flex-shrink-0">
+              {tags.map(tag => (
+                <p key={tag.name} className={`text-[14px] ${tag.color}`}>
+                  #{tag.name}
+                </p>
+              ))}
+            </div>
           </div>
         </div>
       </Tilt>
@@ -71,6 +73,7 @@ const Works = () => {
     grid-cols-1
     sm:grid-cols-2
     lg:grid-cols-2
+    auto-rows-fr
   "
       >
         {projects.map((project, index) => {
@@ -85,7 +88,9 @@ const Works = () => {
                   : ''
               }
             >
-              <ProjectCard index={index} {...project} />
+              <div className="w-full max-w-md">
+                <ProjectCard index={index} {...project} />
+              </div>
             </div>
           );
         })}

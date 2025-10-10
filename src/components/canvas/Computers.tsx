@@ -1,11 +1,28 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
 import CanvasLoader from "../layout/Loader";
 
 const Computers: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
-  const computer = useGLTF("./desktop_pc/scene.gltf");
+  const [modelError, setModelError] = useState(false);
+
+  const computer = useGLTF("./desktop_pc/scene.gltf", false, false, (loader) => {
+    // Add error handling for GLTF loading
+    loader.manager.onError = (url) => {
+      console.error('Error loading 3D model:', url);
+      setModelError(true);
+    };
+  });
+
+  if (modelError) {
+    return (
+      <mesh>
+        <boxGeometry args={[2, 2, 2]} />
+        <meshStandardMaterial color="#915EFF" />
+      </mesh>
+    );
+  }
 
   return (
     <mesh>
@@ -31,6 +48,8 @@ const Computers: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
 
 const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const canvasRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Add a listener for changes to the screen size
@@ -53,17 +72,38 @@ const ComputersCanvas = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (canvasRef.current) {
+      observer.observe(canvasRef.current);
+    }
+
+    return () => {
+      if (canvasRef.current) {
+        observer.unobserve(canvasRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <>
-      {isMobile ? (
-        <></>
-      ) : (
+    <div ref={canvasRef} className="w-full h-full min-h-[300px]">
+      {isVisible && !isMobile && (
         <Canvas
           frameloop="demand"
           shadows
           dpr={[1, 2]}
           camera={{ position: [20, 3, 5], fov: 25 }}
-          gl={{ preserveDrawingBuffer: true }}
+          gl={{
+            preserveDrawingBuffer: true,
+            powerPreference: "high-performance",
+            failIfMajorPerformanceCaveat: false
+          }}
         >
           <Suspense fallback={<CanvasLoader />}>
             <OrbitControls
@@ -77,7 +117,7 @@ const ComputersCanvas = () => {
           <Preload all />
         </Canvas>
       )}
-    </>
+    </div>
   );
 };
 

@@ -1,4 +1,4 @@
-import { useState, useRef, Suspense } from "react";
+import { useState, useRef, Suspense, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial, Preload } from "@react-three/drei";
 import { random } from "maath";
@@ -33,15 +33,39 @@ const Stars = (props: any) => {
 };
 
 const StarsCanvas = () => {
-  return (
-    <div className="absolute inset-0 z-[-1] h-auto w-full">
-      <Canvas camera={{ position: [0, 0, 1] }}>
-        <Suspense fallback={null}>
-          <Stars />
-        </Suspense>
+  const [isVisible, setIsVisible] = useState(false);
+  const canvasRef = useRef<HTMLDivElement>(null);
 
-        <Preload all />
-      </Canvas>
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (canvasRef.current) {
+      observer.observe(canvasRef.current);
+    }
+
+    return () => {
+      if (canvasRef.current) {
+        observer.unobserve(canvasRef.current);
+      }
+    };
+  }, []);
+
+  return (
+    <div ref={canvasRef} className="absolute inset-0 z-[-1] h-auto w-full">
+      {isVisible && (
+        <Canvas camera={{ position: [0, 0, 1] }}>
+          <Suspense fallback={null}>
+            <Stars />
+          </Suspense>
+
+          <Preload all />
+        </Canvas>
+      )}
     </div>
   );
 };

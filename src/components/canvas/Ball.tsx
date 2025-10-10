@@ -6,7 +6,7 @@ import { Decal, Float, OrbitControls, Preload } from '@react-three/drei';
 import CanvasLoader from '../layout/Loader';
 
 const Ball = ({ imgUrl }: { imgUrl: string }) => {
-  const decal = useLoader(TextureLoader,imgUrl);
+  const decal = useLoader(TextureLoader, imgUrl);
 
   return (
     <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>

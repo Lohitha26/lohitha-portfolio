@@ -6,8 +6,8 @@ const Hero = () => {
   const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
 
   // Google Drive link for resume PDF
-  const resumeDriveLink = "https://drive.google.com/file/d/17bhhHvwu8RYNETLFzOpAiCapnmJqYaTJ/view?usp=sharing";
-  const resumeDownloadLink = "https://drive.google.com/uc?export=download&id=17bhhHvwu8RYNETLFzOpAiCapnmJqYaTJ";
+  const resumeDriveLink = "https://drive.google.com/file/d/1xVLPhSzGo0p34C3bjH50BpjzhoFHN41a/view?usp=sharing";
+  const resumeDownloadLink = "https://drive.google.com/file/d/1xVLPhSzGo0p34C3bjH50BpjzhoFHN41a/view?usp=drive_link";
 
 
   const handleDownloadResume = () => {
